@@ -1,1 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Muhammed Althaf | Portfolio</title>
+
+  <meta name="description" content="Muhammed Althaf - Creative Developer, Designer and Digital Creator">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080808;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(8, 8, 8, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #8b5cf6;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #cccccc;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      padding: 150px 7% 80px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hello {
+      color: #a78bfa;
+      font-weight: bold;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 100px);
+      line-height: 0.95;
+      letter-spacing: -5px;
+      margin-bottom: 30px;
+    }
+
+    .hero h1 span {
+      color: #8b5cf6;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #aaaaaa;
+      font-size: 19px;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #8b5cf6;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #7c3aed;
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border: 1px solid #444;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      border-color: #8b5cf6;
+      transform: translateY(-3px);
+    }
+
+    .glow {
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      right: 5%;
+      top: 25%;
+      background: #7c3aed;
+      filter: blur(180px);
+      opacity: 0.25;
+      border-radius: 50%;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 100px 7%;
+    }
+
+    .section-title {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      color: #999;
+      margin-bottom: 45px;
+    }
+
+    /* ABOUT */
+    .about {
+      background: #0d0d0d;
+    }
+
+    .about-content {
+      max-width: 850px;
+    }
+
+    .about-content p {
+      color: #b8b8b8;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .skill {
+      padding: 25px;
+      background: #111111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      transform: translateY(-5px);
+      border-color: #8b5cf6;
+    }
+
+    .skill h3 {
+      margin-bottom: 8px;
+    }
+
+    .skill p {
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* PROJECTS */
+    .projects {
+      background: #0d0d0d;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .project {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-7px);
+      border-color: #8b5cf6;
+    }
+
+    .project-image {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #171717, #241447);
+      font-size: 45px;
+    }
+
+    .project-info {
+      padding: 25px;
+    }
+
+    .project-info h3 {
+      margin-bottom: 10px;
+    }
+
+    .project-info p {
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 10px;
+      margin: 3px;
+      border-radius: 20px;
+      background: #21153d;
+      color: #b99cff;
+      font-size: 12px;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      max-width: 800px;
+    }
+
+    .contact-box p {
+      color: #999;
+      margin-bottom: 30px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-link {
+      padding: 12px 18px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .contact-link:hover {
+      border-color: #8b5cf6;
+      background: #151515;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 30px 7%;
+      text-align: center;
+      border-top: 1px solid #222;
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+
+      nav {
+        padding: 18px 5%;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 130px 5% 70px;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 75px 5%;
+      }
+
+      .section-title {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#home" class="logo">Althaf<span>.</span></a>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- HOME -->
+  <section class="hero" id="home">
+
+    <div class="glow"></div>
+
+    <div class="hero-content">
+
+      <div class="hello">
+        HELLO, I'M ALTHAF 👋
+      </div>
+
+      <h1>
+        I turn ideas into
+        <span>digital experiences.</span>
+      </h1>
+
+      <p>
+        I'm Muhammed Althaf — a creative developer and digital creator
+        interested in web development, design, editing and cybersecurity.
+      </p>
+
+      <div class="buttons">
+        <a href="#projects" class="btn btn-primary">
+          View My Work
+        </a>
+
+        <a href="#contact" class="btn btn-outline">
+          Contact Me
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <h2 class="section-title">About Me</h2>
+
+    <p class="section-subtitle">
+      A little about who I am and what I do.
+    </p>
+
+    <div class="about-content">
+
+      <p>
+        I'm Muhammed Althaf, a creative and technology-focused person
+        who enjoys building websites, creating digital designs and
+        exploring new technologies.
+      </p>
+
+      <p>
+        My interests include web development, graphic design,
+        video editing and cybersecurity. I'm always learning,
+        experimenting and working on new projects.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SKILLS -->
+  <section id="skills">
+
+    <h2 class="section-title">Skills</h2>
+
+    <p class="section-subtitle">
+      Things I'm interested in and working with.
+    </p>
+
+    <div class="skills-grid">
+
+      <div class="skill">
+        <h3>💻 Web Development</h3>
+        <p>HTML, CSS, JavaScript and modern websites.</p>
+      </div>
+
+      <div class="skill">
+        <h3>🎨 Graphic Design</h3>
+        <p>Creative visuals, branding and digital designs.</p>
+      </div>
+
+      <div class="skill">
+        <h3>🎬 Video Editing</h3>
+        <p>Video editing and creative content production.</p>
+      </div>
+
+      <div class="skill">
+        <h3>🔐 Cybersecurity</h3>
+        <p>Security concepts, ethical hacking and networking.</p>
+      </div>
+
+      <div class="skill">
+        <h3>📱 UI Design</h3>
+        <p>Clean and user-friendly digital interfaces.</p>
+      </div>
+
+      <div class="skill">
+        <h3>🚀 Creative Technology</h3>
+        <p>Combining creativity and technology to build ideas.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+
+    <h2 class="section-title">Projects</h2>
+
+    <p class="section-subtitle">
+      Some example projects. We can replace these with your real work.
+    </p>
+
+    <div class="projects-grid">
+
+      <div class="project">
+
+        <div class="project-image">
+          🌐
+        </div>
+
+        <div class="project-info">
+
+          <h3>Personal Portfolio</h3>
+
+          <p>
+            A modern responsive portfolio website designed to
+            showcase my skills, projects and experience.
+          </p>
+
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+
+        </div>
+
+      </div>
+
+
+      <div class="project">
+
+        <div class="project-image">
+          🎨
+        </div>
+
+        <div class="project-info">
+
+          <h3>Creative Design Project</h3>
+
+          <p>
+            A sample creative design project focused on visual
+            communication and digital branding.
+          </p>
+
+          <span class="tag">Design</span>
+          <span class="tag">Branding</span>
+
+        </div>
+
+      </div>
+
+
+      <div class="project">
+
+        <div class="project-image">
+          🔐
+        </div>
+
+        <div class="project-info">
+
+          <h3>Cybersecurity Project</h3>
+
+          <p>
+            A learning project exploring cybersecurity,
+            networking and ethical hacking concepts.
+          </p>
+
+          <span class="tag">Cybersecurity</span>
+          <span class="tag">Networking</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+
+    <h2 class="section-title">Let's Connect</h2>
+
+    <p class="section-subtitle">
+      Have an idea or project? Let's talk.
+    </p>
+
+    <div class="contact-box">
+
+      <p>
+        You can add your real social media and contact links here.
+      </p>
+
+      <div class="contact-links">
+
+        <a
+          class="contact-link"
+          href="https://github.com/muhdalthaf27"
+          target="_blank">
+          GitHub
+        </a>
+
+        <a
+          class="contact-link"
+          href="#"
+          target="_blank">
+          Instagram
+        </a>
+
+        <a
+          class="contact-link"
+          href="#"
+          target="_blank">
+          LinkedIn
+        </a>
+
+        <a
+          class="contact-link"
+          href="mailto:your-email@example.com">
+          Email
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Muhammed Althaf. All rights reserved.
+  </footer>
+
+</body>
+</html>
