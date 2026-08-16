@@ -1,623 +1,1431 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Muhammed Althaf | Portfolio</title>
-
-  <meta name="description" content="Muhammed Althaf - Creative Developer, Designer and Digital Creator">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #080808;
-      color: #ffffff;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* NAVBAR */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 20px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(8, 8, 8, 0.85);
-      backdrop-filter: blur(12px);
-      z-index: 1000;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
-
-    .logo span {
-      color: #8b5cf6;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: #cccccc;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: #ffffff;
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      padding: 150px 7% 80px;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-content {
-      max-width: 800px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hello {
-      color: #a78bfa;
-      font-weight: bold;
-      margin-bottom: 15px;
-      font-size: 16px;
-    }
-
-    .hero h1 {
-      font-size: clamp(48px, 8vw, 100px);
-      line-height: 0.95;
-      letter-spacing: -5px;
-      margin-bottom: 30px;
-    }
-
-    .hero h1 span {
-      color: #8b5cf6;
-    }
-
-    .hero p {
-      max-width: 650px;
-      color: #aaaaaa;
-      font-size: 19px;
-      margin-bottom: 35px;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .btn-primary {
-      background: #8b5cf6;
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #7c3aed;
-      transform: translateY(-3px);
-    }
-
-    .btn-outline {
-      border: 1px solid #444;
-      color: white;
-    }
-
-    .btn-outline:hover {
-      border-color: #8b5cf6;
-      transform: translateY(-3px);
-    }
-
-    .glow {
-      position: absolute;
-      width: 450px;
-      height: 450px;
-      right: 5%;
-      top: 25%;
-      background: #7c3aed;
-      filter: blur(180px);
-      opacity: 0.25;
-      border-radius: 50%;
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 100px 7%;
-    }
-
-    .section-title {
-      font-size: 45px;
-      margin-bottom: 15px;
-    }
-
-    .section-subtitle {
-      color: #999;
-      margin-bottom: 45px;
-    }
-
-    /* ABOUT */
-    .about {
-      background: #0d0d0d;
-    }
-
-    .about-content {
-      max-width: 850px;
-    }
-
-    .about-content p {
-      color: #b8b8b8;
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-
-    /* SKILLS */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-    }
-
-    .skill {
-      padding: 25px;
-      background: #111111;
-      border: 1px solid #222;
-      border-radius: 12px;
-      transition: 0.3s;
-    }
-
-    .skill:hover {
-      transform: translateY(-5px);
-      border-color: #8b5cf6;
-    }
-
-    .skill h3 {
-      margin-bottom: 8px;
-    }
-
-    .skill p {
-      color: #888;
-      font-size: 14px;
-    }
-
-    /* PROJECTS */
-    .projects {
-      background: #0d0d0d;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-
-    .project {
-      background: #111;
-      border: 1px solid #222;
-      border-radius: 15px;
-      overflow: hidden;
-      transition: 0.3s;
-    }
-
-    .project:hover {
-      transform: translateY(-7px);
-      border-color: #8b5cf6;
-    }
-
-    .project-image {
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #171717, #241447);
-      font-size: 45px;
-    }
-
-    .project-info {
-      padding: 25px;
-    }
-
-    .project-info h3 {
-      margin-bottom: 10px;
-    }
-
-    .project-info p {
-      color: #999;
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 5px 10px;
-      margin: 3px;
-      border-radius: 20px;
-      background: #21153d;
-      color: #b99cff;
-      font-size: 12px;
-    }
-
-    /* CONTACT */
-    .contact-box {
-      max-width: 800px;
-    }
-
-    .contact-box p {
-      color: #999;
-      margin-bottom: 30px;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .contact-link {
-      padding: 12px 18px;
-      border: 1px solid #333;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-
-    .contact-link:hover {
-      border-color: #8b5cf6;
-      background: #151515;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 30px 7%;
-      text-align: center;
-      border-top: 1px solid #222;
-      color: #777;
-      font-size: 14px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 700px) {
-
-      nav {
-        padding: 18px 5%;
-      }
-
-      .nav-links {
-        gap: 12px;
-      }
-
-      .nav-links a {
-        font-size: 12px;
-      }
-
-      .hero {
-        padding: 130px 5% 70px;
-      }
-
-      .hero h1 {
-        letter-spacing: -3px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      section {
-        padding: 75px 5%;
-      }
-
-      .section-title {
-        font-size: 36px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- NAVIGATION -->
-  <nav>
-    <a href="#home" class="logo">Althaf<span>.</span></a>
-
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-
-  <!-- HOME -->
-  <section class="hero" id="home">
-
-    <div class="glow"></div>
-
-    <div class="hero-content">
-
-      <div class="hello">
-        HELLO, I'M ALTHAF 👋
-      </div>
-
-      <h1>
-        I turn ideas into
-        <span>digital experiences.</span>
-      </h1>
-
-      <p>
-        I'm Muhammed Althaf — a creative developer and digital creator
-        interested in web development, design, editing and cybersecurity.
-      </p>
-
-      <div class="buttons">
-        <a href="#projects" class="btn btn-primary">
-          View My Work
-        </a>
-
-        <a href="#contact" class="btn btn-outline">
-          Contact Me
-        </a>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ABOUT -->
-  <section class="about" id="about">
-
-    <h2 class="section-title">About Me</h2>
-
-    <p class="section-subtitle">
-      A little about who I am and what I do.
-    </p>
-
-    <div class="about-content">
-
-      <p>
-        I'm Muhammed Althaf, a creative and technology-focused person
-        who enjoys building websites, creating digital designs and
-        exploring new technologies.
-      </p>
-
-      <p>
-        My interests include web development, graphic design,
-        video editing and cybersecurity. I'm always learning,
-        experimenting and working on new projects.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- SKILLS -->
-  <section id="skills">
-
-    <h2 class="section-title">Skills</h2>
-
-    <p class="section-subtitle">
-      Things I'm interested in and working with.
-    </p>
-
-    <div class="skills-grid">
-
-      <div class="skill">
-        <h3>💻 Web Development</h3>
-        <p>HTML, CSS, JavaScript and modern websites.</p>
-      </div>
-
-      <div class="skill">
-        <h3>🎨 Graphic Design</h3>
-        <p>Creative visuals, branding and digital designs.</p>
-      </div>
-
-      <div class="skill">
-        <h3>🎬 Video Editing</h3>
-        <p>Video editing and creative content production.</p>
-      </div>
-
-      <div class="skill">
-        <h3>🔐 Cybersecurity</h3>
-        <p>Security concepts, ethical hacking and networking.</p>
-      </div>
-
-      <div class="skill">
-        <h3>📱 UI Design</h3>
-        <p>Clean and user-friendly digital interfaces.</p>
-      </div>
-
-      <div class="skill">
-        <h3>🚀 Creative Technology</h3>
-        <p>Combining creativity and technology to build ideas.</p>
-      </div>
-
-    </div>
+/* =========================================================
+   MUHAMMED ALTHAF — CREATIVE PORTFOLIO
+   Graphic Designer • Web • Cybersecurity
+   ========================================================= */
 
-  </section>
-
-
-  <!-- PROJECTS -->
-  <section class="projects" id="projects">
 
-    <h2 class="section-title">Projects</h2>
+/* =========================================================
+   01. RESET
+   ========================================================= */
 
-    <p class="section-subtitle">
-      Some example projects. We can replace these with your real work.
-    </p>
-
-    <div class="projects-grid">
-
-      <div class="project">
-
-        <div class="project-image">
-          🌐
-        </div>
-
-        <div class="project-info">
-
-          <h3>Personal Portfolio</h3>
-
-          <p>
-            A modern responsive portfolio website designed to
-            showcase my skills, projects and experience.
-          </p>
-
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-
-        </div>
-
-      </div>
-
-
-      <div class="project">
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        <div class="project-image">
-          🎨
-        </div>
-
-        <div class="project-info">
-
-          <h3>Creative Design Project</h3>
-
-          <p>
-            A sample creative design project focused on visual
-            communication and digital branding.
-          </p>
-
-          <span class="tag">Design</span>
-          <span class="tag">Branding</span>
-
-        </div>
-
-      </div>
-
-
-      <div class="project">
-
-        <div class="project-image">
-          🔐
-        </div>
-
-        <div class="project-info">
-
-          <h3>Cybersecurity Project</h3>
-
-          <p>
-            A learning project exploring cybersecurity,
-            networking and ethical hacking concepts.
-          </p>
-
-          <span class="tag">Cybersecurity</span>
-          <span class="tag">Networking</span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- CONTACT -->
-  <section id="contact">
-
-    <h2 class="section-title">Let's Connect</h2>
-
-    <p class="section-subtitle">
-      Have an idea or project? Let's talk.
-    </p>
-
-    <div class="contact-box">
-
-      <p>
-        You can add your real social media and contact links here.
-      </p>
-
-      <div class="contact-links">
-
-        <a
-          class="contact-link"
-          href="https://github.com/muhdalthaf27"
-          target="_blank">
-          GitHub
-        </a>
-
-        <a
-          class="contact-link"
-          href="#"
-          target="_blank">
-          Instagram
-        </a>
-
-        <a
-          class="contact-link"
-          href="#"
-          target="_blank">
-          LinkedIn
-        </a>
-
-        <a
-          class="contact-link"
-          href="mailto:your-email@example.com">
-          Email
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- FOOTER -->
-  <footer>
-    © 2026 Muhammed Althaf. All rights reserved.
-  </footer>
-
-</body>
-</html>
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  min-height: 100vh;
+
+  background: #080808;
+  color: #f5f5f5;
+
+  font-family:
+    Inter,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  line-height: 1.5;
+
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body::selection {
+  background: #c6ff00;
+  color: #000;
+}
+
+img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+
+/* =========================================================
+   02. DESIGN TOKENS
+   ========================================================= */
+
+:root {
+
+  --black: #080808;
+  --black-soft: #101010;
+  --black-card: #131313;
+
+  --white: #f5f5f5;
+  --white-soft: #d7d7d7;
+
+  --gray: #8b8b8b;
+  --gray-dark: #555;
+  --line: rgba(255, 255, 255, 0.10);
+
+  --accent: #c6ff00;
+  --accent-dark: #9dcc00;
+
+  --container: 1400px;
+
+  --radius: 4px;
+
+  --transition:
+    300ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  --ease:
+    cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   03. BODY DETAILS
+   ========================================================= */
+
+body::before {
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 9999;
+
+  opacity: 0.035;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+}
+
+
+/* =========================================================
+   04. NAVIGATION
+   ========================================================= */
+
+nav {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  height: 82px;
+
+  padding:
+    0 clamp(24px, 6vw, 90px);
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 1000;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(8, 8, 8, 0.92),
+      rgba(8, 8, 8, 0.65)
+    );
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.07);
+}
+
+.logo {
+  position: relative;
+
+  font-size: 21px;
+
+  font-weight: 900;
+
+  letter-spacing: -1.2px;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.logo::after {
+  content: "";
+
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  right: -8px;
+  bottom: 4px;
+
+  background: var(--accent);
+
+  border-radius: 50%;
+}
+
+.nav-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: clamp(18px, 3vw, 40px);
+}
+
+.nav-links a {
+  position: relative;
+
+  color: #a5a5a5;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+
+  transition: color var(--transition);
+}
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -7px;
+
+  width: 0;
+  height: 1px;
+
+  background: var(--accent);
+
+  transition: width var(--transition);
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   05. HERO
+   ========================================================= */
+
+.hero {
+  position: relative;
+
+  min-height: 100svh;
+
+  max-width: var(--container);
+
+  margin: 0 auto;
+
+  padding:
+    180px
+    clamp(24px, 6vw, 90px)
+    120px;
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+
+  z-index: 5;
+
+  max-width: 1150px;
+}
+
+.eyebrow {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 30px;
+
+  color: var(--accent);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+
+  width: 28px;
+  height: 1px;
+
+  background: var(--accent);
+}
+
+.hero h1 {
+  max-width: 1150px;
+
+  font-size:
+    clamp(58px, 9.5vw, 148px);
+
+  font-weight: 900;
+
+  line-height: 0.82;
+
+  letter-spacing: -0.075em;
+
+  text-transform: uppercase;
+
+  margin-bottom: 45px;
+}
+
+.hero h1 span {
+  color: var(--accent);
+
+  display: inline-block;
+
+  position: relative;
+}
+
+.hero h1 span::after {
+  content: "";
+
+  position: absolute;
+
+  left: 2%;
+  right: 0;
+
+  bottom: -8px;
+
+  height: 3px;
+
+  background: var(--accent);
+
+  transform: scaleX(0);
+
+  transform-origin: left;
+
+  animation:
+    underlineReveal 1s 0.8s var(--ease) forwards;
+}
+
+@keyframes underlineReveal {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.hero-text {
+  max-width: 620px;
+
+  margin-bottom: 40px;
+
+  color: #929292;
+
+  font-size: clamp(15px, 1.4vw, 19px);
+
+  line-height: 1.7;
+}
+
+.buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+.btn {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 52px;
+
+  padding:
+    0 25px;
+
+  border: 1px solid transparent;
+
+  border-radius: var(--radius);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  overflow: hidden;
+
+  transition:
+    color var(--transition),
+    background var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
+}
+
+.btn::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  transform:
+    translateY(100%);
+
+  background: #fff;
+
+  transition:
+    transform 400ms var(--ease);
+}
+
+.btn:hover::before {
+  transform: translateY(0);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn.primary {
+  background: var(--accent);
+
+  color: #000;
+}
+
+.btn.primary:hover {
+  color: #000;
+
+  box-shadow:
+    0 15px 40px
+    rgba(198,255,0,0.18);
+}
+
+.btn.secondary {
+  border-color: #383838;
+
+  color: #fff;
+}
+
+.btn.secondary:hover {
+  border-color: #fff;
+}
+
+.btn:not(:hover)::before {
+  z-index: -1;
+}
+
+.btn::after {
+  content: "↗";
+
+  margin-left: 12px;
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   06. HERO DECORATION
+   ========================================================= */
+
+.circle {
+  position: absolute;
+
+  width: min(55vw, 720px);
+  aspect-ratio: 1;
+
+  right: -250px;
+  top: 50%;
+
+  transform:
+    translateY(-50%);
+
+  border:
+    1px solid
+    rgba(198,255,0,0.18);
+
+  border-radius: 50%;
+
+  animation:
+    rotateCircle 30s linear infinite;
+
+  pointer-events: none;
+}
+
+.circle::before {
+  content: "";
+
+  position: absolute;
+
+  width: 72%;
+  aspect-ratio: 1;
+
+  left: 14%;
+  top: 14%;
+
+  border:
+    1px solid
+    rgba(198,255,0,0.12);
+
+  border-radius: 50%;
+}
+
+.circle::after {
+  content: "";
+
+  position: absolute;
+
+  width: 11px;
+  height: 11px;
+
+  left: 13%;
+  top: 16%;
+
+  background: var(--accent);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 25px
+    rgba(198,255,0,0.8);
+}
+
+@keyframes rotateCircle {
+  from {
+    transform:
+      translateY(-50%)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translateY(-50%)
+      rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   07. MARQUEE
+   ========================================================= */
+
+.marquee {
+  width: 100%;
+
+  overflow: hidden;
+
+  padding: 17px 0;
+
+  border-top:
+    1px solid var(--line);
+
+  border-bottom:
+    1px solid var(--line);
+
+  background: #0b0b0b;
+
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-block;
+
+  min-width: 200%;
+
+  color: var(--accent);
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  animation:
+    marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================================================
+   08. SECTIONS
+   ========================================================= */
+
+section {
+  position: relative;
+
+  padding:
+    clamp(90px, 12vw, 170px)
+    clamp(24px, 6vw, 90px);
+}
+
+section > * {
+  max-width: var(--container);
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.label {
+  color: var(--accent);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 20px;
+}
+
+.title {
+  max-width: 1000px;
+
+  font-size:
+    clamp(45px, 6vw, 90px);
+
+  font-weight: 900;
+
+  line-height: 0.88;
+
+  letter-spacing: -0.065em;
+
+  text-transform: uppercase;
+
+  margin-bottom: 30px;
+}
+
+.description {
+  max-width: 650px;
+
+  color: #888;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+
+  margin-bottom: 55px;
+}
+
+
+/* =========================================================
+   09. ABOUT
+   ========================================================= */
+
+.about {
+  background: #101010;
+
+  border-top:
+    1px solid var(--line);
+
+  border-bottom:
+    1px solid var(--line);
+}
+
+.about-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 0.8fr);
+
+  gap: clamp(40px, 8vw, 120px);
+
+  align-items: start;
+
+  max-width: var(--container);
+
+  margin: auto;
+}
+
+.about-text {
+  color: #999;
+
+  font-size: 18px;
+
+  line-height: 1.8;
+}
+
+.about-text p {
+  margin-bottom: 25px;
+}
+
+.about-text p:first-child {
+  color: #eee;
+
+  font-size: 22px;
+}
+
+.about-card {
+  max-width: var(--container);
+
+  min-height: 360px;
+
+  margin:
+    80px auto 0;
+
+  padding: clamp(30px, 5vw, 60px);
+
+  display: flex;
+
+  align-items: flex-end;
+
+  overflow: hidden;
+
+  position: relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--accent) 0%,
+      var(--accent) 48%,
+      #1b1b1b 48%
+    );
+}
+
+.about-card::before {
+  content: "CREATIVE";
+
+  position: absolute;
+
+  top: 30px;
+  right: 35px;
+
+  color: rgba(0,0,0,0.35);
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  letter-spacing: 4px;
+}
+
+.about-card h3 {
+  position: relative;
+
+  z-index: 2;
+
+  color: #000;
+
+  font-size:
+    clamp(45px, 7vw, 100px);
+
+  font-weight: 900;
+
+  line-height: 0.8;
+
+  letter-spacing: -0.07em;
+}
+
+
+/* =========================================================
+   10. SERVICES
+   ========================================================= */
+
+.service-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1px;
+
+  max-width: var(--container);
+
+  margin: auto;
+
+  background: #333;
+}
+
+.service {
+  min-height: 330px;
+
+  padding:
+    30px;
+
+  background: #0b0b0b;
+
+  position: relative;
+
+  transition:
+    background var(--transition),
+    transform var(--transition);
+}
+
+.service::after {
+  content: "↗";
+
+  position: absolute;
+
+  top: 28px;
+  right: 28px;
+
+  color: #444;
+
+  font-size: 22px;
+
+  transition:
+    color var(--transition),
+    transform var(--transition);
+}
+
+.service:hover {
+  background: #151515;
+
+  transform:
+    translateY(-6px);
+
+  z-index: 2;
+}
+
+.service:hover::after {
+  color: var(--accent);
+
+  transform:
+    translate(3px, -3px);
+}
+
+.service-number {
+  color: #555;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 100px;
+}
+
+.service h3 {
+  font-size: 28px;
+
+  letter-spacing: -1px;
+
+  margin-bottom: 15px;
+}
+
+.service p {
+  max-width: 330px;
+
+  color: #777;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   11. WORK / PORTFOLIO
+   ========================================================= */
+
+.work {
+  background: #101010;
+
+  border-top:
+    1px solid var(--line);
+
+  border-bottom:
+    1px solid var(--line);
+}
+
+.work-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+
+  max-width: var(--container);
+
+  margin: auto;
+}
+
+.project {
+  position: relative;
+
+  min-height: 460px;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  isolation: isolate;
+
+  background:
+    #171717;
+
+  transition:
+    transform 500ms var(--ease);
+}
+
+.project::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      135deg,
+      #242424,
+      #111
+    );
+
+  transition:
+    transform 700ms var(--ease);
+}
+
+.project::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,0.95),
+      transparent 65%
+    );
+}
+
+.project:nth-child(1)::before {
+  background:
+    radial-gradient(
+      circle at 70% 25%,
+      var(--accent) 0%,
+      transparent 28%
+    ),
+    #151515;
+}
+
+.project:nth-child(2)::before {
+  background:
+    linear-gradient(
+      135deg,
+      #292929,
+      #101010
+    );
+}
+
+.project:nth-child(3)::before {
+  background:
+    radial-gradient(
+      circle at 25% 35%,
+      var(--accent) 0%,
+      transparent 22%
+    ),
+    #101010;
+}
+
+.project:nth-child(4)::before {
+  background:
+    linear-gradient(
+      135deg,
+      #303030,
+      #0d0d0d
+    );
+}
+
+.project:hover {
+  transform:
+    translateY(-8px);
+}
+
+.project:hover::before {
+  transform:
+    scale(1.06);
+}
+
+.project-info {
+  position: relative;
+
+  width: 100%;
+
+  padding: 35px;
+
+  z-index: 2;
+}
+
+.project-info small {
+  color: var(--accent);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.project-info h3 {
+  margin-top: 7px;
+
+  font-size:
+    clamp(25px, 3vw, 38px);
+
+  letter-spacing: -1.5px;
+}
+
+
+/* =========================================================
+   12. SKILLS
+   ========================================================= */
+
+.skills {
+  background: #080808;
+}
+
+.skills-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  max-width: var(--container);
+
+  margin: auto;
+}
+
+.skill {
+  padding:
+    13px 19px;
+
+  border:
+    1px solid #303030;
+
+  border-radius: 100px;
+
+  color: #999;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
+}
+
+.skill:hover {
+  color: #000;
+
+  background: var(--accent);
+
+  border-color: var(--accent);
+
+  transform:
+    translateY(-3px);
+}
+
+
+/* =========================================================
+   13. CONTACT
+   ========================================================= */
+
+.contact {
+  min-height: 80vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+  overflow: hidden;
+}
+
+.contact .label {
+  margin-bottom: 30px;
+}
+
+.contact h2 {
+  max-width: 1100px;
+
+  font-size:
+    clamp(55px, 10vw, 145px);
+
+  font-weight: 900;
+
+  line-height: 0.8;
+
+  letter-spacing: -0.075em;
+
+  text-transform: uppercase;
+
+  margin-bottom: 45px;
+}
+
+.contact h2 span {
+  color: var(--accent);
+}
+
+.email {
+  color: #aaa;
+
+  font-size: 18px;
+
+  margin-bottom: 30px;
+
+  transition:
+    color var(--transition);
+}
+
+.email:hover {
+  color: var(--accent);
+}
+
+.socials {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 25px;
+}
+
+.socials a {
+  color: #777;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  transition:
+    color var(--transition),
+    transform var(--transition);
+}
+
+.socials a:hover {
+  color: var(--accent);
+
+  transform:
+    translateY(-3px);
+}
+
+
+/* =========================================================
+   14. FOOTER
+   ========================================================= */
+
+footer {
+  min-height: 80px;
+
+  padding:
+    25px
+    clamp(24px, 6vw, 90px);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  border-top:
+    1px solid var(--line);
+
+  color: #555;
+
+  font-size: 11px;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   15. FOCUS / ACCESSIBILITY
+   ========================================================= */
+
+a:focus-visible,
+button:focus-visible {
+  outline:
+    2px solid var(--accent);
+
+  outline-offset: 5px;
+}
+
+
+/* =========================================================
+   16. RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .hero {
+    padding-top: 150px;
+  }
+
+  .circle {
+    right: -320px;
+
+    opacity: 0.5;
+  }
+
+  .about-grid {
+    gap: 50px;
+  }
+
+  .service-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================================
+   17. RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  nav {
+    height: 70px;
+
+    padding:
+      0 20px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    min-height: 100svh;
+
+    padding:
+      130px
+      20px
+      80px;
+  }
+
+  .hero h1 {
+    font-size:
+      clamp(52px, 16vw, 90px);
+
+    letter-spacing: -0.07em;
+
+    margin-bottom: 32px;
+  }
+
+  .hero-text {
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+  .circle {
+    width: 360px;
+
+    right: -250px;
+
+    opacity: 0.25;
+  }
+
+  section {
+    padding:
+      90px 20px;
+  }
+
+  .title {
+    font-size:
+      clamp(43px, 13vw, 70px);
+
+    letter-spacing: -0.07em;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .about-text {
+    font-size: 16px;
+  }
+
+  .about-text p:first-child {
+    font-size: 19px;
+  }
+
+  .about-card {
+    min-height: 300px;
+
+    margin-top: 50px;
+
+    padding: 30px;
+  }
+
+  .about-card h3 {
+    font-size:
+      clamp(45px, 15vw, 75px);
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+
+    gap: 1px;
+  }
+
+  .service {
+    min-height: 270px;
+  }
+
+  .service-number {
+    margin-bottom: 70px;
+  }
+
+  .work-grid {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .project {
+    min-height: 340px;
+  }
+
+  .project-info {
+    padding: 25px;
+  }
+
+  .contact {
+    min-height: 75svh;
+
+    padding:
+      90px 20px;
+  }
+
+  .contact h2 {
+    font-size:
+      clamp(52px, 16vw, 90px);
+
+    letter-spacing: -0.075em;
+  }
+
+  footer {
+    padding:
+      25px 20px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 8px;
+  }
+}
+
+
+/* =========================================================
+   18. REDUCE MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}
